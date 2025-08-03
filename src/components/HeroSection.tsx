@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "./Button";
 import backGround from "../assets/pexels-alexandr-podvalny-1227513.jpeg";
 
