@@ -1,11 +1,7 @@
 import { Button } from "./Button";
 import backGround from "../assets/pexels-alexandr-podvalny-1227513.jpeg";
 
-interface HeroSectionProps {
-    onSignUpClick: () => void;
-}
-
-function HeroSection({ onSignUpClick } : HeroSectionProps) {
+function HeroSection() {
     return (
         <section className="relative h-screen">
             <div
@@ -24,7 +20,9 @@ function HeroSection({ onSignUpClick } : HeroSectionProps) {
                         What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of Front-End Development keeps evolving.
                     </p>
                     <div className="flex justify-center">
-                        <Button onClick={onSignUpClick} className="py-2 px-7">Sign up</Button>
+                        <a href="#register">
+                            <Button className="py-2 px-7">Sign up</Button>
+                        </a>
                     </div>
                 </div>
             </div>
