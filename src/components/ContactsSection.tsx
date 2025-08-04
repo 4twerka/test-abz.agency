@@ -72,7 +72,7 @@ function ContactsSection() {
   }
 
   return (
-    <section className="flex bg-bgColor flex-col items-center justify-center">
+    <section id="contacts" className="flex bg-bgColor flex-col items-center justify-center">
       <Text className="text-center" variant="heading">
         Working with GET request
       </Text>
