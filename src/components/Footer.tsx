@@ -1,7 +1,7 @@
 
 function Footer() {
     return (
-        <footer className="w-full px-4">
+        <footer className="w-full bg-bgColor px-4">
             <div className="max-w-screen-xl mx-auto">
                 <hr className="border-t border-gray-200" />
                 <p className="text-sm py-4">
