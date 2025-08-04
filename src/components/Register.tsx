@@ -143,7 +143,7 @@ function Register() {
         photo !== null;
 
     return (
-        <div className="flex justify-center items-center flex-col px-4 py-10">
+        <div className="flex bg-bgColor justify-center items-center flex-col px-4 py-10">
             <Text variant="heading" className="text-center text-[40px] mb-8">
                 Working with POST request
             </Text>
