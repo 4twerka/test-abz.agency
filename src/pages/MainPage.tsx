@@ -1,15 +1,26 @@
 import { HeroSection } from "../components/HeroSection";
 import { ContactsSection } from "../components/ContactsSection";
 import { Register } from "../components/Register";
+import type { RefObject } from "react";
 
-function MainPage() {
+interface MainPageProps {
+    contactsRef: RefObject<HTMLDivElement | null>;
+    registerRef: RefObject<HTMLDivElement | null>;
+    onSignUpClick: () => void;
+}
+
+function MainPage({ contactsRef, registerRef, onSignUpClick }: MainPageProps) {
     return (
         <main>
-            <HeroSection />
-            <ContactsSection />
-            <Register />
+            <HeroSection onSignUpClick={onSignUpClick} />
+            <div ref={contactsRef}>
+                <ContactsSection />
+            </div>
+            <div ref={registerRef}>
+                <Register />
+            </div>
         </main>
     );
 }
 
-export { MainPage }
+export { MainPage };
