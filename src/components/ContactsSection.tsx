@@ -20,7 +20,7 @@ function ContactsSection() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [users, setUsers] = useState<User[]>([]);
-  const [isShow, setIsShow] = useState<Boolean>(true);
+  const [totalUsers, setTotalUsers] = useState<number>(0);
 
   const BASE_URL = `https://frontend-test-assignment-api.abz.agency/api/v1`;
   const USERS_URL = `/users`;
@@ -36,19 +36,16 @@ function ContactsSection() {
 
     fetch(`${BASE_URL}${USERS_URL}?${searchParams.toString()}`)
       .then((response) => {
-        if (!response) {
-          throw new Error("Something went wrong");
-        }
+        if (!response.ok) throw new Error("Something went wrong");
         return response.json();
       })
       .then((data) => {
         if (data.success && !ignore) {
           setUsers((prev) => [...prev, ...data.users]);
-
-          if (data.users.length < 6) {
-            setIsShow(false);
-          }
-        } else throw new Error("Something went wrong");
+          setTotalUsers(data.total_users);
+        } else {
+          throw new Error("Something went wrong");
+        }
       })
       .catch((error) => {
         console.error("Problem:", error);
@@ -62,10 +59,14 @@ function ContactsSection() {
     };
   }, [page]);
 
+  const isShow = users.length < totalUsers;
+
   if (isLoading && users.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[300px]">
-        <p className="text-2xl font-semibold text-gray-500 animate-pulse">Loading...</p>
+        <p className="text-2xl font-semibold text-gray-500 animate-pulse">
+          Loading...
+        </p>
       </div>
     );
   }
