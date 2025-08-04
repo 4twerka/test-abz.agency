@@ -4,6 +4,7 @@ interface Props {
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     className?: string;
     type?: "button" | "submit" | "reset";
+    disabled?: boolean;
 }
 
 function Button({
@@ -11,12 +12,16 @@ function Button({
     onClick,
     className = "",
     type = "button",
+    disabled = false,
 }: PropsWithChildren<Props>) {
     return (
         <button
             type={type}
             onClick={onClick}
-            className={`bg-buttonYellow font-nunito text-base rounded-[5rem] text-black ${className}`}
+            disabled={disabled}
+            className={`font-nunito text-base rounded-[5rem] text-black ${
+                disabled ? "bg-[#B4B4B4] cursor-not-allowed" : "bg-buttonYellow"
+            } ${className}`}
         >
             {children}
         </button>

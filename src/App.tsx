@@ -2,6 +2,7 @@ import './App.css';
 import { MainPage } from './pages/MainPage';
 import { Header } from './components/Header';
 import { useRef } from 'react';
+import { Footer } from './components/Footer';
 
 function App() {
   const contactsRef = useRef<HTMLDivElement>(null);
@@ -26,6 +27,7 @@ function App() {
         registerRef={registerRef}
         onSignUpClick={scrollToRegister}
       />
+      <Footer />
     </>
   );
 }
